@@ -1,5 +1,5 @@
 const express = require('express');
-const Route = require('../models/route');
+const Route = require('../models/Route');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
