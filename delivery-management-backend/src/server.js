@@ -11,9 +11,15 @@ const { loadInitialData } = require('./services/dataLoader');
 
 const app = express();
 
-app.use(cors());
+// ✅ Configure CORS before routes
+app.use(cors({
+  origin: "https://greencart-logistics.netlify.app", // your Netlify frontend URL
+  credentials: true
+}));
+
 app.use(express.json());
 
+// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', authenticateToken, dashboardRoutes);
 app.use('/api/drivers', authenticateToken, driverRoutes);
